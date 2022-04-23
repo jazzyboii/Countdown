@@ -46,7 +46,7 @@ class Board extends React.Component {
 }
   
 class Game extends React.Component {
-      constructor(props){
+    constructor(props){
           super(props);
           this.state = {
               history: [{
@@ -55,7 +55,7 @@ class Game extends React.Component {
               stepNumber: 0,
               xIsNext: true,
           };
-      }
+    }
 
     handleClick(i) {
         const history = this.state.history.slice(0,this.state.stepNumber + 1);
@@ -106,6 +106,8 @@ class Game extends React.Component {
       let status;
       if (winner) {
         status = 'Winner : ' + winner;
+      } else if (this.state.stepNumber > 8){
+        status = 'Draw';
       } else {
         status = 'Next player: ' + (this.state.xIsNext ? 'X' : '0');
       }
